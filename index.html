@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,37 +8,43 @@
     <title>Vue Todolist</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <div id="app">
         <div class="logo">
             <img src="./assets/img/logo.png" alt="logo boolean">
         </div>
-    </div>
-    <div class="add_tasks">
-        <input v-model="input.task" type="text" placeholder="Add new task!">
-        <button @click="addTask">Add Task</button>
-    </div>
-
-    <div class="tasks" v-if="">
-        <div>
-            <i></i>
+        
+        <div class="add_tasks">
+            <input v-model="newTask" type="text" placeholder="Add new task!">
+            <button @click="addTask">Add Task</button>
         </div>
-    </div>
-    <div class="no_tasks" v-else>
-        <span>No tasks to show!</span>
-    </div>
 
+        <div class="tasks container" v-if="tasks.length > 0">
+            <div v-for="(task,index) in tasks"> 
+                {{task}}
+                <i></i>
+            </div>
+        </div>
+        <div class="no_tasks" v-else>
+            <span>No tasks to show!</span>
+        </div> 
+    </div>
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Vanilla JS -->
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

@@ -13,12 +13,19 @@ const app = new Vue({
     },
     methods: {
         addTask(){
-            this.task.push(this.newTask)
+            this.tasks.push(this.newTask)
             this.newTask = ''
         },
         removeTask(index){
             console.log('Remove task n.' + index);
             this.tasks.splice(index, 1);
-        }
+        },        
+    },
+    mounted(){
+        document.addEventListener('keyup', (e) =>{
+            if (e.key === 'Enter'){
+                this.addTask();
+            }
+        });
     }
 });
