@@ -28,8 +28,11 @@
             </div>
 
             <div class="add_tasks tasks">
-                <input v-model="newTask" type="text" placeholder="Add new task!" @keyup.enter="addTask"> 
+                <input v-model="newTask" type="text" placeholder="Add new task!" @keyup.enter="addTask">
                 <button @click="addTask">Add Task</button>
+                <div v-if="error.length > 0">
+                    <small>{{error}}</small>
+                </div>
             </div>
 
             <div class="tasks container" v-if="tasks.length > 0">
@@ -45,10 +48,20 @@
                 <span>No tasks to show!</span>
             </div>
 
-            <div class="completed_tasks" v-if="completedTasks.length > 0">
+            <div class="completed_tasks container" v-if="completedTasks.length > 0">
                 <h5>Completed Tasks</h5>
                 <div v-for="(task, index) in completedTasks">
-                    {{task}} <i class="fas fa-undo fa-sm fa-fw" @click="restoreTask(index, task)"></i>
+                    {{task}}
+                    <i class="fas fa-undo fa-sm fa-fw" @click="restoreTask(index, task)"></i>
+                </div>
+            </div>
+
+            <div class="trash container" v-if="trash.length > 0">
+                <h5>Trash</h5> 
+                <div v-for="(task, index) in trash">
+                        {{task}}
+                        <i class="fa fa-trash-restore" @click="restoreTrashedTasks(index, task)"></i>
+                    </div>
                 </div>
             </div>
         </div>
