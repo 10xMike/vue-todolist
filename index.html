@@ -57,14 +57,14 @@
             </div>
 
             <div class="trash container" v-if="trash.length > 0">
-                <h5>Trash</h5> 
+                <h5>Trash</h5>
                 <div v-for="(task, index) in trash">
-                        {{task}}
-                        <i class="fa fa-trash-restore" @click="restoreTrashedTasks(index, task)"></i>
-                    </div>
+                    {{task}}
+                    <i class="fa fa-trash-restore" @click="restoreTrashedTasks(index, task)"></i>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Vue JS -->
