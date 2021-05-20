@@ -27,20 +27,29 @@
                 <img src="./assets/img/logo.png" alt="logo boolean">
             </div>
 
-            <div class="add_tasks">
-                <input v-model="newTask" type="text" placeholder="Add new task!" :class="validateTask"> 
+            <div class="add_tasks tasks">
+                <input v-model="newTask" type="text" placeholder="Add new task!" @keyup.enter="addTask"> 
                 <button @click="addTask">Add Task</button>
             </div>
 
             <div class="tasks container" v-if="tasks.length > 0">
+                <h5>To do list</h5>
                 <div v-for="(task,index) in tasks">
-                    <span>{{task}}</span>
-                    <i class="fas fa-check-circle" @click="taskCompleted(index)"></i>
-                    <i class="fa fa-trash" @click="removeTask(index)"></i>
+                    <input v-model="tasks[index]" @keyup.enter="updateTask">
+                    <i class="fas fa-check-circle fa-sm fa-fw" @click="taskCompleted(index, task)"></i>
+                    <i class="fa fa-times-circle fa-sm fa-fw" @click="removeTask(index)"></i>
                 </div>
             </div>
+
             <div class="no_tasks" v-else>
                 <span>No tasks to show!</span>
+            </div>
+
+            <div class="completed_tasks" v-if="completedTasks.length > 0">
+                <h5>Completed Tasks</h5>
+                <div v-for="(task, index) in completedTasks">
+                    {{task}} <i class="fas fa-undo fa-sm fa-fw" @click="restoreTask(index, task)"></i>
+                </div>
             </div>
         </div>
     </div>

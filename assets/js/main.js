@@ -22,26 +22,35 @@ const app = new Vue({
             'Impara HTML',
             'Impara CSS',
             'Impara JS',
-        ]
+        ],
+        completedTasks: [],
     },
     methods: {
         addTask(){
-            this.tasks.push(this.newTask)
+            /* if (this.newTask == '' || this.newTask == ' ' || this.newTask == '  ') {
+            this.validateTask = true;
+            } */
+            this.tasks.push(this.newTask);
             this.newTask = '';
-            if (this.newTask == '' || this.newTask == ' ' || this.newTask == '  ') {
-                this.validateTask = true;
-            }
         },
         removeTask(index){
             console.log('Remove task n.' + index);
             this.tasks.splice(index, 1);
         },
-        taskCompleted(index){
-            this.tasks.splice(index, 1);
-        }        
+        taskCompleted(index, task){
+            this.completedTasks.unshift(task);
+            this.tasks.splice(index, 1);    
+        },
+        updateTask(){
+            alert('Succesfully updated!')
+        },
+        restoreTask(index, task){
+            this.tasks.unshift(task);
+            this.completedTasks.splice(index, 1);
+        }
     },
     mounted(){
-        window.addEventListener('keydown', (e) =>{
+        window.addEventListener('keyup', (e) =>{
             if (e.key === 'Enter'){
                 this.addTask();
             }

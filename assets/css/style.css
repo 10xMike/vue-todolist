@@ -4,7 +4,6 @@
     margin: 0;
 }
 body{
-
     background-color: rgba(156, 219, 217, 0.597);
 }
 #wrapper{
@@ -28,10 +27,11 @@ button{
 }
 .container{
     background-color: white;
-    border: thin solid black;
     border-radius: 3px;
-    width: 225px;
     box-shadow: grey 0.5px 1px;
     margin-top: 1rem;
 }
 
+.tasks input{
+    border-style: none;
+}
