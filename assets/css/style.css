@@ -4,21 +4,28 @@
     margin: 0;
 }
 body{
+
     background-color: rgba(156, 219, 217, 0.597);
 }
-#app {
+#wrapper{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+}
+
+#app {
+    /* height: 100vh; */
+    margin: auto;
 }
 
 img{
     width: 225px;
     margin-bottom: 1rem;
 }
-
+button{
+    border-radius: 3px;
+    background-color: #fff173;
+    color: black;
+}
 .container{
     background-color: white;
     border: thin solid black;
@@ -27,3 +34,4 @@ img{
     box-shadow: grey 0.5px 1px;
     margin-top: 1rem;
 }
+

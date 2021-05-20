@@ -21,26 +21,29 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="logo">
-            <img src="./assets/img/logo.png" alt="logo boolean">
-        </div>
-        
-        <div class="add_tasks">
-            <input v-model="newTask" type="text" placeholder="Add new task!">
-            <button @click="addTask">Add Task</button>
-        </div>
+    <div id="wrapper">
+        <div id="app">
+            <div class="logo">
+                <img src="./assets/img/logo.png" alt="logo boolean">
+            </div>
 
-        <div class="tasks container" v-if="tasks.length > 0">
-            <div v-for="(task,index) in tasks"> 
-                {{task}}
-                <i></i>
+            <div class="add_tasks">
+                <input v-model="newTask" type="text" placeholder="Add new task!">
+                <button @click="addTask">Add Task</button>
+            </div>
+
+            <div class="tasks container" v-if="tasks.length > 0">
+                <div v-for="(task,index) in tasks">
+                    <span>{{task}}</span><i class="fas fa-check-circle checkmargin"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="no_tasks" v-else>
+                <span>No tasks to show!</span>
             </div>
         </div>
-        <div class="no_tasks" v-else>
-            <span>No tasks to show!</span>
-        </div> 
     </div>
+
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Vanilla JS -->
