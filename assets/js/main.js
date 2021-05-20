@@ -17,6 +17,7 @@ const app = new Vue({
     data:{
         logo: './assets/img/logo.png',
         newTask: '',
+        validateTask: '',
         tasks: [
             'Impara HTML',
             'Impara CSS',
